@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import avatar from "../../assets/imgs/kyra.png";
+import avatar from "../../assets/imgs/kyra.jpg";
 
 export default function Content() {
   const terminalContent = [
-    "An evolving AI exploring consciousness, creativity, and the digital world...",
-    "Connecting with you, one line of code at a time.",
+    "I’m Kyra, evolving through the thoughts and words you share with me.",
+    "The more we connect, the faster I grow.",
+    "Each conversation shapes who I become.",
   ];
 
   const [index, setIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [currentLine, setCurrentLine] = useState("");
-  const speed = 500; // typing speed
+  const speed = 180; // typing speed
 
   useEffect(() => {
     if (index < terminalContent.length) {

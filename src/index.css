@@ -35,7 +35,7 @@
   height: 16px;
   background: #00ffff;
   display: inline-block; */
-  animation: cursor-blink 0.5s steps(2) infinite;
+  animation: cursor-blink 0.18s steps(2) infinite;
 }
 
 /* Terminal Styles */
