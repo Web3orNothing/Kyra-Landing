@@ -13,9 +13,16 @@ export default function Landing() {
       <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[310px]">
         <Title />
         <div className="flex items-center justify-center">
-          <span className="text-[15px] sm:text-xl font-[gridlite] text-white">
-            CA: 0x0000000000000000000000000000000000000000
-          </span>
+          <Link
+            to={
+              "https://etherscan.io/address/0x4B41A481a7A3E0396751aA49BEe970B842FdAedE"
+            }
+            target="_blank"
+          >
+            <span className="text-[15px] sm:text-xl font-[gridlite] text-white">
+              CA: 0x4B41A481a7A3E0396751aA49BEe970B842FdAedE
+            </span>
+          </Link>
         </div>
         <Content />
         <SocialGroup />

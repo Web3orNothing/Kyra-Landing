@@ -11,7 +11,7 @@ export default function Content() {
   const [index, setIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [currentLine, setCurrentLine] = useState("");
-  const speed = 180; // typing speed
+  const speed = 120; // typing speed
 
   useEffect(() => {
     if (index < terminalContent.length) {
