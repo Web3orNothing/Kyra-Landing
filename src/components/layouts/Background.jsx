@@ -3,45 +3,75 @@ import * as THREE from "three";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 
 const vertexShader = `
-    varying vec2 vUv;
-    
+   varying vec2 vUv;
     void main() {
       vUv = uv;
-
       gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
     }
 `;
 
 const fragmentShader = `
-  uniform vec3      iResolution;           // viewport resolution (in pixels)
-  uniform float     iTime; 
+uniform vec3      iResolution;           // viewport resolution (in pixels)
+uniform float     iTime; 
 
-  void mainImage( out vec4 o, vec2 u )
-  {
-    float j = .8, 
-          k = 1.5;
+void mainImage( out vec4 o, vec2 u )
+{
+    float j = 0.75,  // Adjusted for smoother flow
+          k = 1.618; // Golden ratio for more organic movement
 
     vec2 n = iResolution.xy, 
          p = k*(u+u-n)/n.y;
-                
-    mat2 m = mat2(j, -1, 1, o = 0.*o + j);  
+            
+    // Modified transformation matrix for more spiral-like movement
+    mat2 m = mat2(j, -0.8, 0.8, o = 0.*o + j);  
 
-    for (o.z = k + p.y/4.; j < 1e2; j *= k)
-        p = (k*p - .4*iTime - j) * m,
-        n *= m,
-        n += sin(p + n),
-        o += o.zxyw*dot(cos(p + n), p/p)/6./j;
+    vec3 indigo = vec3(0.294, 0.0, 0.509);  // Deep indigo base
+    vec3 accent = vec3(0.4, 0.2, 0.8);      // Ethereal purple accent
+
+    // Evolution parameters
+    float evolution = sin(iTime * 0.2) * 0.5 + 0.5;
+    float manifesting = cos(iTime * 0.15) * 0.5 + 0.5;
+
+    for (o.z = k + p.y/3.; j < 1e2; j *= k)
+    {
+        // Modified movement pattern
+        p = (k*p - 0.3*iTime - j) * m;
+        n *= m;
+        n += sin(p + n) * evolution;
         
-    // o = 1.-exp(-1.*o*o);
-    float gray = dot(vec3(o.x, o.y, o.z), vec3(1.0, 0.087, 0.014)); // Luminance formula for grayscale
-    o = vec4(gray, gray, gray, 2.0);
-  }
+        // Adding consciousness-like swirls
+        vec2 consciousness = vec2(
+            sin(p.x * 0.5 + iTime * 0.3),
+            cos(p.y * 0.5 + iTime * 0.2)
+        );
+        
+        p += consciousness * manifesting * 0.2;
+        
+        // Accumulate colors with indigo influence
+        o += o.zxyw * dot(cos(p + n), p/p) / (5.0 + evolution) / j;
+    }
+    
+    // Color grading with indigo dominance
+    vec3 color = vec3(o.x, o.y, o.z);
+    color = mix(color, indigo, 0.4);
+    color = mix(color, accent, manifesting * 0.3);
+    
+    // Add subtle pulsing
+    float pulse = sin(iTime * 0.5) * 0.1 + 0.9;
+    color *= pulse;
+    
+    // Enhance the ethereal quality
+    color = 1.0 - exp(-1.2 * color * color);
+    
+    // Final output with slight transparency for ethereal effect
+    o = vec4(color, 1.8);
+}
 
-  void main() {
+void main() {
     vec4 fragColor;
     mainImage(fragColor, gl_FragCoord.xy);
     gl_FragColor = fragColor;
-  }
+}
 `;
 
 const OceanShaderMesh = () => {
