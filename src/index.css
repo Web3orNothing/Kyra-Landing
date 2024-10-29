@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Chakra font classes */
+
+/* Font weight utility classes */
+.chakra-light {
+  font-weight: 300;
+}
+
+.chakra-regular {
+  font-weight: 400;
+}
+
+.chakra-medium {
+  font-weight: 500;
+}
+
+.chakra-semibold {
+  font-weight: 600;
+}
+
+.chakra-bold {
+  font-weight: 700;
+}
+
 @font-face {
   font-family: "gridlite";
   src: local("gridlite"), url("./assets/fonts/gridlite.ttf");
@@ -39,11 +62,34 @@
 }
 
 /* Terminal Styles */
+@keyframes textGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.text-stroke-neon {
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa,
+    0 0 82px #22f, 0 0 92px #44f, 0 0 102px #48f, 0 0 151px #69f;
+}
+.gradient-text {
+  background: linear-gradient(to right, #2d1bfc, #00f5ff);
+  background-size: 300% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textGradient 2s linear infinite;
+}
 .terminal {
   background: rgba(0, 0, 0, 0.7);
   padding: 20px;
-  border-radius: 2px;
-  border: 2px solid white;
+
   box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
   color: #00ffff;
   font-size: 1.2em;
@@ -51,6 +97,10 @@
   overflow: hidden;
 }
 
+.content-card {
+  border: 0.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+}
 /* CTA Button */
 .cta-button {
   background-color: #00ffff;
@@ -138,3 +188,68 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+.glowing-card {
+  --border: rgba(200, 200, 200, 0.2);
+  --border-width: 0.5px;
+  --border-radius: 6px;
+  position: relative;
+}
+.card {
+  --border: rgba(200, 200, 200, 0.1);
+  --border-width: 0.5px;
+  --border-radius: 6px;
+  position: relative;
+  isolation: isolate;
+}
+
+.glowing-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: conic-gradient(
+    from 180deg at 50% 70%,
+    hsla(0, 0%, 98%, 0.5) 0deg,
+    #eec32d 72deg,
+    #3c3cff 144deg,
+    #709ab9 216deg,
+    #4dafbf 288deg,
+    hsla(0, 0%, 98%, 1) 360deg
+  );
+  border-radius: 6px;
+  opacity: calc(var(--active, 0) * 0.9);
+  transition: opacity 0.3s;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.glowing-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--background);
+  border-radius: 6px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.glowing-card:hover::before {
+  opacity: 0.8;
+}
+
+.glow-effect {
+  position: absolute;
+  inset: -20px;
+  background: conic-gradient(
+    from var(--angle, 0deg) at 50% 50%,
+    #aaddee,
+    #0c4bfb,
+    #709ab9,
+    #111fff
+  );
+  border-radius: 6px;
+  filter: blur(40px);
+  opacity: calc(var(--active, 0) * 0.9);
+  transition: opacity 0.3s;
+  z-index: -2;
+}

@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap");
+
 @font-face {
   font-family: "gridlite-pe-variable";
   src: url("/gridlite.ttf");
 }
 
+/* Grid font title class */
 .title {
   font-family: "gridlite-pe-variable", sans-serif;
   font-variation-settings: "wght" 900, "BACK" 1, "RECT" 1, "ELSH" 3;
