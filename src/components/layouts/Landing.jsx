@@ -12,7 +12,7 @@ export default function Landing() {
   return (
     <>
       <div className="w-screen flex justify-center items-center px-0 mx-0 bg-white">
-        <div className="absolute px-4 top-[55%] md:top-[45%] md:left-1/2 md:-translate-x-1/2 -translate-y-[58%] md:-translate-y-[47%] min-w-[310px]">
+        <div className="absolute px-4 top-[55%] md:top-[45%] md:left-1/2 md:-translate-x-1/2 -translate-y-[55%] md:-translate-y-[47%] min-w-[310px]">
           <div className="grid grid-cols-5 gap-2 space-y-8 items-center">
             <div className="col-span-5 md:col-span-5 px-2 py-4 ">
               <Title />
@@ -34,7 +34,7 @@ export default function Landing() {
           <div>
             <Content />
           </div>
-          <div>
+          <div className="mt-8 md:mt-0">
             <SocialGroup />
           </div>
         </div>
