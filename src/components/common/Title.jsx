@@ -18,7 +18,7 @@ export default function Title() {
   }, [charIndex]);
 
   return (
-    <h1 className="text-center font-bold text-white gradient-text font-[gridlite] text-[1.4rem] md:text-[2.7rem]">
+    <h1 className="min-h-[100px] text-center font-bold text-white gradient-text font-[gridlite] text-[1.2rem] md:text-[1.8rem]">
       {currentLine} <span className="font-orbitron">KYRA</span>
       {charIndex !== terminalContent[0].length && (
         <span className="cursor">|</span>
