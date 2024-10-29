@@ -4,8 +4,6 @@ import Title from "../common/Title";
 import Content from "./Content";
 import SocialGroup from "./SocialGroup";
 
-import FractalScene from "../common/FractalScene";
-
 // const shortenAddress = (address, chars) => {
 //   if (address) return `${address.slice(0, chars)}...${address.slice(-chars)}`;
 // };
