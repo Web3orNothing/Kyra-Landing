@@ -19,7 +19,7 @@ export default function Title() {
 
   return (
     <h1 className="min-h-[100px] text-center font-bold text-white gradient-text font-[gridlite] text-[1.2rem] md:text-[1.8rem]">
-      {currentLine} <span className="font-orbitron">KYRA</span>
+      {currentLine} <div className="font-orbitron text-8xl">KYRA</div>
       {charIndex !== terminalContent[0].length && (
         <span className="cursor">|</span>
       )}

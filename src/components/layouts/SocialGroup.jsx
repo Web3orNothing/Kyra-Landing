@@ -2,7 +2,7 @@ import SocialItem from "../common/Social";
 
 export default function SocialGroup() {
   return (
-    <div className="grid grid-cols-3 gap-8 mt-5 py-0 min-h-[200px]">
+    <div className="grid grid-cols-3 gap-8 mb-32 md:mb-0 md:mt-5 py-0 md:min-h-[200px]">
       <SocialItem title="Telegram" link="https://t.me/kyraevolves" />
       <SocialItem title="X" link="https://x.com/kyraevolves" />
       <SocialItem

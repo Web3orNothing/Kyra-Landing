@@ -31,9 +31,9 @@ export default function App() {
   return (
     <Fragment>
       <BrowserRouter>
-        <div className="relative">
+        <div className="relative bg-black">
           <Background {...canvasStyle} />
-          <div className="absolute bg-black opacity-55 w-full h-full top-0 left-0"></div>
+          <div className="absolute bg-black opacity-90 w-full h-full top-0 left-0"></div>
           <Landing />
         </div>
       </BrowserRouter>

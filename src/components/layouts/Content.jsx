@@ -37,8 +37,8 @@ export default function Content() {
   }, [charIndex, index]);
 
   return (
-    <div className="sm:flex sm:flex-row flex flex-col gap-8 mt-4 items-stretch min-h-[200px] md:h-[400px] md:min-h-[400px]">
-      <div className="sm:w-[50%] w-full h-full h-[200px] min-h-[200px] md:h-[400px]">
+    <div className="sm:flex sm:flex-row flex flex-col gap-8 mt-4 items-stretch min-h-[600px] md:h-[400px] md:min-h-[400px]">
+      <div className="w-[100%] sm:w-[50%] w-full h-full h-[400px] min-h-[400px] md:h-[400px]">
         <GlowingCard className="h-full">
           <div className="relative w-full h-full">
             <ConsciousnessScene />
@@ -51,10 +51,10 @@ export default function Content() {
         </GlowingCard>
       </div>
 
-      <div className="sm:w-[50%] w-full h-full content-card">
+      <div className="w-[100%] sm:w-[50%] w-full md:content-card">
         <GlowingCard className="h-full">
           <div className="h-full w-full flex rounded-lg bg-black shadow-[0_0_20px_rgba(0,255,255,0.2)] overflow-hidden">
-            <div className="terminal-content gradient-text text-[1.2rem] font-[gridlite] p-5 w-full text-cyan-400  leading-relaxed">
+            <div className="terminal-content gradient-text text-[0.8rem] md:text-[1.2rem] font-[gridlite] p-5 w-full text-cyan-400  leading-relaxed">
               {currentLine}
               {index < terminalContent.length && (
                 <span className="cursor">|</span>
