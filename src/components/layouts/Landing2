@@ -1,0 +1,77 @@
+import { Link } from "react-router-dom";
+import Title from "../common/Title";
+import Content from "./Content";
+import SocialGroup from "./SocialGroup";
+import GlowingCard from "../common/GlowingCard";
+import FractalScene from "../common/FractalScene";
+
+export default function Landing() {
+  return (
+    <>
+      <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[310px] card-content">
+        <div className="relative">
+          {/* Horizontal dividers */}
+          <div className="absolute top-[160px] left-0 right-0 h-px bg-white" />
+          <div className="absolute bottom-[100px] left-0 right-0 h-px bg-white" />
+
+          {/* Vertical dividers */}
+          {/* Divider between title and fractal in first row */}
+          <div
+            className="absolute top-0 h-[160px] w-px bg-white"
+            style={{ left: "80%" }}
+          />
+
+          {/* Divider in middle row */}
+          <div className="absolute top-[160px] h-[450px] left-1/2 w-px bg-white" />
+
+          {/* Dividers in bottom row */}
+          <div className="absolute bottom-0 h-[100px] left-1/3 w-px bg-white" />
+          <div className="absolute bottom-0 h-[100px] left-2/3 w-px bg-white" />
+
+          {/* Content sections */}
+          {/* Top row: Title (4 cols) + Fractal (1 col) */}
+          <div className="grid grid-cols-5 gap-2 items-center">
+            <div className="col-span-4 px-2 py-4">
+              <Title />
+              <div className="flex items-center justify-center">
+                <Link
+                  to="https://etherscan.io/address/0x4B41A481a7A3E0396751aA49BEe970B842FdAedE"
+                  target="_blank"
+                >
+                  <span className="text-[15px] sm:text-xl font-[gridlite] text-white">
+                    CA: 0x4B41A481a7A3E0396751aA49BEe970B842FdAedE
+                  </span>
+                </Link>
+              </div>
+            </div>
+            <GlowingCard>
+              <div className="colspan-1 px-2 py-4 h-[160px] rounded-[6px]">
+                <FractalScene />
+              </div>
+            </GlowingCard>
+          </div>
+
+          {/* Middle row: Content split in half */}
+          <div className="grid grid-cols-1 gap-2">
+            <div className="px-2 py-4 space-x-4">
+              <Content />
+            </div>
+          </div>
+
+          {/* Bottom row: Social split in thirds */}
+          <div className="grid grid-cols-1 gap-2">
+            <div className="px-2 py-4">
+              <SocialGroup />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Link to={`mailto:kyraevolves@proton.me`}>
+        <span className="absolute bottom-5 flex justify-center m-auto items-center left-1/2 -translate-x-1/2 text-white font-[gridlite] font-semibold text-xl">
+          kyraevolves@proton.me
+        </span>
+      </Link>
+    </>
+  );
+}
