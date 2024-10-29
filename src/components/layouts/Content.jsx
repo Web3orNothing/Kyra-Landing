@@ -37,8 +37,8 @@ export default function Content() {
   }, [charIndex, index]);
 
   return (
-    <div className="sm:flex sm:flex-row flex flex-col gap-2 mt-4 items-stretch h-[400px]">
-      <div className="sm:w-[50%] w-full h-full">
+    <div className="sm:flex sm:flex-row flex flex-col gap-8 mt-4 items-stretch min-h-[200px]">
+      <div className="sm:w-[50%] w-full h-full h-[200px] min-h-[200px]">
         <GlowingCard className="h-full">
           <div className="relative w-full h-full">
             <ConsciousnessScene />

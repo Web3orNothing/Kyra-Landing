@@ -15,7 +15,7 @@ export default function Landing() {
     <>
       <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[310px]">
         <div className="grid grid-cols-5 gap-2 items-center">
-          <div className="col-span-4 px-2 py-4 ">
+          <div className="col-span-5 md:col-span-4 px-2 py-4 ">
             <Title />
 
             <div className="flex items-center justify-center">
@@ -25,14 +25,14 @@ export default function Landing() {
                 }
                 target="_blank"
               >
-                <span className="text-[15px] sm:text-xl font-[gridlite] text-white">
+                <span className="text-[10px] md:text-[15px] sm:text-xl font-[gridlite] text-white">
                   CA: 0x4B41A481a7A3E0396751aA49BEe970B842FdAedE
                 </span>
               </Link>
             </div>
           </div>
           <GlowingCard>
-            <div className="colspan-1 content-card px-2 py-4 bg-black h-[160px]">
+            <div className="colspan-1 content-card px-2 py-4 bg-black h-[160px] hidden md:block">
               <FractalScene />
             </div>
           </GlowingCard>
